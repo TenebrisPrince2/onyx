@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<title>ONYX · Финансы</title>
+<meta name="theme-color" content="#000000">
+<meta name="color-scheme" content="dark">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="ONYX">
+<meta name="format-detection" content="telephone=no">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<!-- PERF: preload локальных шрифтов (WOFF2 — на 64% меньше TTF) — убирает лишний круг-трип и «прыжок» текста при первом рендере на телефоне -->
+<link rel="preload" href="fonts/Nunito_ExtraBold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/Jellee-Roman.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/nbrb.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/ledger.css">
+<link rel="stylesheet" href="css/sheets.css">
+<link rel="stylesheet" href="css/stats.css">
+<link rel="stylesheet" href="css/screens.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="hlGrad" x1="0" y1="1" x2="1" y2="0">
+<stop offset="0" stop-color="#ff453a"/><stop offset=".5" stop-color="#ffd60a"/><stop offset="1" stop-color="#30d158"/>
+</linearGradient><linearGradient id="hlArea" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#30d158" stop-opacity=".22"/><stop offset="1" stop-color="#30d158" stop-opacity="0"/>
+</linearGradient></defs></svg>
+<div class="amb" aria-hidden="true">
+  <svg width="100%" height="100%" viewBox="0 0 640 360" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#ffffff" stop-opacity=".30"/>
+        <stop offset=".45" stop-color="#ffffff" stop-opacity=".14"/>
+        <stop offset=".72" stop-color="#ffffff" stop-opacity=".22"/>
+        <stop offset="1" stop-color="#ffffff" stop-opacity=".10"/>
+      </linearGradient>
+      <filter id="b1" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="14"/></filter>
+    </defs>
+    <path filter="url(#b1)" fill="url(#g1)" d="M60 150C60 70 130 30 250 44s180 46 300 22 190 6 190 84-70 130-190 150-230 8-330-4S60 230 60 150Z"/>
+    <path filter="url(#b1)" stroke="#ffffff" stroke-opacity=".35" stroke-width="1.5" fill="none"
+      d="M70 152c0-76 66-114 182-100s176 44 292 21 184 6 184 80-68 126-184 145-222 8-320-4S70 226 70 152Z"/>
+  </svg>
+  <div class="amb__grain"></div>
+</div>
+
+<div class="phone" id="phone">
+  <header class="topbar" id="topbar"></header>
+  <div class="view" id="view"></div>
+  <div class="view-fade" aria-hidden="true"></div>
+  <div id="quickhost"></div>
+  <div class="fabhost" id="fabhost"><button class="fab" data-act="add" aria-label="Новая операция"><i data-lucide="plus" class="ic"></i></button></div>
+  <div id="overlays"></div>
+  <div class="toasts" id="toasts"></div>
+</div>
+
+<div class="splash" id="splash"><div class="mark"><span class="mark__g"></span>Onyx</div></div>
+
+<script defer src="utils.js"></script>
+<script defer src="domain/currency.js"></script>
+<script defer src="domain/periods.js"></script>
+<script defer src="domain/cache.js"></script>
+<script defer src="app/i18n.js"></script>
+<script defer src="storage/keys.js"></script>
+<script defer src="storage/safe.js"></script>
+<script defer src="storage/state.js"></script>
+<script defer src="storage/store.js"></script>
+<script defer src="storage/mutations.js"></script>
+<script defer src="storage/schema.js"></script>
+<script defer src="storage/index.js"></script>
+<script defer src="domain/factories.js"></script>
+<script defer src="domain/entities.js"></script>
+<script defer src="domain/calculations.js"></script>
+<script defer src="domain/index.js"></script>
+<script defer src="app/lockpad.js"></script>
+<script defer src="screens/home.js"></script>
+<script defer src="screens/smart.js"></script>
+<script defer src="screens/editor.js"></script>
+<script defer src="screens/accounts.js"></script>
+<script defer src="screens/categories.js"></script>
+<script defer src="screens/goals.js"></script>
+<script defer src="screens/search.js"></script>
+<script defer src="screens/settings.js"></script>
+<script defer src="screens/lock.js"></script>
+<script defer src="screens/index.js"></script>
+<script defer src="app/core.js"></script>
+<script defer src="app/events.js"></script>
+<script defer src="app/viewport.js"></script>
+<script defer src="app/reminders.js"></script>
+<script defer src="app/recurring.js"></script>
+<script defer src="app/deeplinks.js"></script>
+<script defer src="app/pwa.js"></script>
+<script defer src="app/boot.js"></script>
+</body>
+</html>

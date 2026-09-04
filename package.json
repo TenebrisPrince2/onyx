@@ -1,0 +1,19 @@
+{
+  "name": "onyx",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ONYX — офлайн-first PWA для учёта личных финансов. Vanilla JS, без сборки: открывается как статический сайт.",
+  "scripts": {
+    "start": "npx --yes serve -l 8080 .",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "node --test \"tests/**/*.test.mjs\""
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.18.0",
+    "eslint": "^9.18.0",
+    "prettier": "^3.4.2"
+  }
+}

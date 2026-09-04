@@ -1,0 +1,71 @@
+/* css/base.css */
+@font-face {
+  font-family: "nbrb";
+  src: url("../fonts/nbrb.woff2") format("woff2"), url("../fonts/nbrb.ttf") format("truetype");
+  font-display: swap;
+  unicode-range: U+E901, U+42, U+59, U+4E;
+}
+/* единый шрифт цифр: Jellee (локальный, офлайн) — только цифры, точка/запятая, минус и разделители тысяч.
+   WOFF2 — основной формат (на 64% меньше TTF), truetype — фолбэк для старых браузеров. */
+@font-face{font-family:"Jellee";src:url("../fonts/Jellee-Roman.woff2") format("woff2"),url("../fonts/Jellee-Roman.ttf") format("truetype");font-weight:100 900;font-style:normal;font-display:swap;unicode-range:U+30-39,U+2E,U+2C,U+2212,U+20,U+A0}
+/* основной текст приложения: Nunito ExtraBold (локальный, офлайн) */
+@font-face{font-family:"Nunito ExtraBold";src:url("../fonts/Nunito_ExtraBold.woff2") format("woff2"),url("../fonts/Nunito_ExtraBold.ttf") format("truetype");font-weight:100 900;font-style:normal;font-display:swap}
+.nbrb-icon {
+  font-family: "nbrb" !important;
+  /* глиф монограммы занимает 58% em-квадрата против 71% у цифр — 1.22em даёт оптическое равенство по высоте */
+  font-size: 1.22em; line-height: 1;
+  display: inline-block; vertical-align: baseline;
+  speak: none; font-style: normal; font-weight: normal;
+  font-variant: normal; text-transform: none; line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: normal;
+  font-feature-settings: "liga";
+  font-variant-ligatures: discretionary-ligatures;
+}
+
+*,*::before,*::after{box-sizing:border-box;-webkit-tap-highlight-color:transparent}html{text-rendering:optimizeLegibility}html,body{height:100%;margin:0;overflow:hidden;overscroll-behavior:none;background:#000}body{
+  background: #000;
+  color: var(--t1);
+  font-family:var(--font-ui);
+  font-size:16px; font-weight:400; line-height:1.4;
+  letter-spacing:.006em;
+  -webkit-font-smoothing:antialiased; font-optical-sizing:auto; text-rendering:optimizeLegibility;
+  overflow:hidden;
+}body,button,a,[role="button"],label{touch-action:manipulation}button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;letter-spacing:inherit}input,textarea,select{font:inherit;color:inherit;letter-spacing:inherit}input[type="range"],input[type="checkbox"],input[type="radio"]{accent-color:oklch(88% 0 0)}input[type="range"]{height:20px;cursor:pointer}input[type="color"]{border-radius:20px}input[type="color"]::-webkit-color-swatch-wrapper{padding:0}input[type="color"]::-webkit-color-swatch{border:0;border-radius:20px}h1,h2,h3{text-wrap:balance;margin:0;font-family:var(--font-display);font-weight:650;letter-spacing:-.02em}h2{font-size:17px;font-weight:600}::selection{background:oklch(85% 0 0 / .3)}:focus-visible{outline:2px solid oklch(92% 0 0);outline-offset:2px;border-radius:6px}.ic{width:20px;height:20px;flex:none;stroke-width:2;shape-rendering:geometricPrecision}.ic-s{width:16px;height:16px}.ic-l{width:24px;height:24px}/* фиксированный размер 18×18 независимо от контейнера (иконка «Все счета») — специфичность выше, чем у .tile--sm .ic */
+svg.ic.ic-18{width:18px;height:18px}.bysign{display:inline-block;font-size:1em;line-height:1;flex:none;vertical-align:0}.chip--flat[data-act="ed-cur"] .bysign{font-size:1.93em}.chip--flat[data-act="ed-cur"] .nbrb-icon{font-size:1.4em}.chip--flat[data-act="ed-acc"] .bysign,.chip--flat[data-act="ed-acc2"] .bysign{font-size:1.3em}.ed__meta .chip--flat[data-act="ed-cur"]{width:52px;height:44px;min-height:44px;padding:0;display:flex;align-items:center;justify-content:center;border-radius:26px;flex:none;font-size:16px;line-height:1}.num{font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+/* money */
+.money-num{font-variant-numeric:tabular-nums;letter-spacing:-.03em}
+/* число + знак валюты — единый неразрывный блок во всём приложении */
+.amt,.money-num,.hero__amt,.hero__alt,.flowi b,.row__amt,.item__v,.chip__s,.as-donutc b,.as__total span,.as__cat-v,.as-stat b,.as-big__v,.as-flow__val,.as-flow__net,.as-tip b,.sv__sum,.sv__pct,.gp-main small,.bal-input,.ins-card__val,.ins-net b,.ins-chip__s,.bud__amt{white-space:nowrap}
+/* знак подчинён числу в крупных значениях (≈70% высоты цифр), но не мельче оптических 14px */
+.hero__amt .nbrb-icon,.ins-net b .nbrb-icon,.ed__amt .nbrb-icon{font-size:max(.86em,17px)}
+/* typography scale
+   size: 11 · 12 · 13 · 14.5 · 15.5 · 17 · 19 · 22 · 28 · 34 · 46/56 (hero)
+   weights: 400 body · 500-600 emphasis · 700 buttons/labels · 800 display numerals
+   tracking: -.035em display · -.02em headings · -.01em values · +.12em caps-labels
+   numerals: tabular-nums everywhere amounts/counts render */
+.hero__amt,.ed__amt,.ins-net b{font-family:var(--font-display)}
+.hero__amt{font-size:46px;font-weight:800;letter-spacing:-.035em;line-height:1.03;font-variant-numeric:tabular-nums}
+@media(min-width:400px){.hero__amt{font-size:56px}}
+.hero__lab{font-size:12px;font-weight:600;letter-spacing:.07em}
+.flowi b{font-size:17px;font-weight:800;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.label{font-size:11px;font-weight:600;letter-spacing:.12em}
+.item__t{font-size:15px;font-weight:500;line-height:1.25}
+.item__t small{font-size:12px;font-weight:400;line-height:1.35}
+.btn{font-size:16px;font-weight:700;line-height:1.2;letter-spacing:-.005em}
+.chip__t{font-size:14px;font-weight:600}
+.chip__s{font-size:10px}
+.row__t{font-size:15px;font-weight:500;letter-spacing:-.005em}
+.row__s{font-size:12px;font-weight:400;line-height:1.35}
+.dayhead b{letter-spacing:-.005em}
+.num,.amt,.money-num,.row__amt,.item__v,.bal-input,.bal-cur-code,.key,.cal__d,.lockpad button,.sv__pct,.sv__sum,.as__total span,.as-donutc b,.ins-card__val,.ins-chip__s,.gp-main small{font-variant-numeric:tabular-nums}
+h1,h2,h3,.fs-title,.as__ttl{font-family:var(--font-display)}
+.sheet__hd h3{font-size:17px;letter-spacing:-.015em}
+.shead h2{font-size:17px}
+p{text-wrap:pretty}
+
+/* PERF: лайт-режим (включает автоопределитель, html[data-perf="low"]) — анимации мгновенные, каскады выключены */
+html[data-perf="low"] *{animation-duration:.01ms!important;animation-delay:0ms!important;transition-duration:.01ms!important}
+html[data-perf="low"] .sw{animation:none}
+html[data-perf="low"] .amb{display:none}
